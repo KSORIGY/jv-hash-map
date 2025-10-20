@@ -57,11 +57,11 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
     }
 
     private int calculateHash(K key) {
-        return key.hashCode();
+        return (key == null) ? 0 : key.hashCode();
     }
 
     private int indexForBucket(int hash, int capacity) {
-        return hash % (capacity - 1);
+        return hash & (capacity - 1);
     }
 
     private void resize() {
