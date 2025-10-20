@@ -1,7 +1,5 @@
 package core.basesyntax;
 
-import java.util.HashMap;
-
 public class MyHashMap<K, V> implements MyMap<K, V> {
     private static final int DEFAULT_INITIAL_CAPACITY = 16;
     private static final float DEFAULT_LOAD_FACTOR = 0.75f;
@@ -24,7 +22,7 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
         int hash = calculateHash(key);
         int index = indexForBucket(hash, capacity);
         for (Node<K, V> currentNode = table[index]; currentNode != null;
-             currentNode = currentNode.next) {
+                currentNode = currentNode.next) {
             if (currentNode.hash == hash && (currentNode.key == key
                     || (key != null && key.equals(currentNode.key)))) {
                 currentNode.setValue(value);
@@ -44,7 +42,7 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
         int hash = calculateHash(key);
         int index = indexForBucket(hash, capacity);
         for (Node<K, V> currentNode = table[index]; currentNode != null;
-             currentNode = currentNode.next) {
+                currentNode = currentNode.next) {
             if (currentNode.hash == hash && (currentNode.key == key
                     || (key != null && key.equals(currentNode.key)))) {
                 return currentNode.getValue();
